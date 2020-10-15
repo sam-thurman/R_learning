@@ -10,6 +10,9 @@ set.seed(65)
 
 # with argument name, exact argument order
 runif(n = 9, min = 3, max = 6)
+?runif
+
+runif(10)
 
 set.seed(65)
 
@@ -36,11 +39,32 @@ set.seed(65)
 # using arguments 1 and 3
 runif(3,,4)
 
+### PACKAGES
+# install package (once)
+install.packages('plotly')
+
+# adding packages for use in a script
+  # in RStudio, could go to 'Packages' or
+require(plotly)
+# or 
+require(plotly)
 
 
+### Concatenation with c
 
+a = 5:8
 
+b = c(5:8)
 
+?plot.ts
+
+plot.ts(c(5,3,7,8,3)) # correct form, first argument is provided
+
+plot.ts(5,3,7,8,3) # incorrect, 5 arguments are provided
+
+plot.ts(a) 
+# same as ... for plotting
+plot.ts(b)
 
 ### First Coding Steps
 
@@ -57,7 +81,10 @@ runif(3,,4)
 # Creating objects
 x <- c(4,5,6)
 
+x
+
 c(4, 5.2, 76) -> y # arrows work both directions
+
 y
 
 x = c(4, 5, 6)
