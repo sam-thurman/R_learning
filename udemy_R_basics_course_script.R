@@ -12,6 +12,11 @@ set.seed(65)
 runif(n = 9, min = 3, max = 6)
 ?runif
 
+?rnorm
+
+hist(rnorm(1000))
+hist(runif(1000))
+
 runif(10)
 
 set.seed(65)
@@ -66,12 +71,15 @@ plot.ts(a)
 # same as ... for plotting
 plot.ts(b)
 
+
+
 ### First Coding Steps
 
 # R as a calculator
-4 + 4                        + 5
+4 + 4 + 5
 
 # Space does not matter
+4 + 4                        + 5
 
 # Operators: + - / * ^
 
@@ -119,6 +127,7 @@ sqrt(x)
 # Values at a given position within the vector
 x[1]
 
+# assert case truth of a vector
 newobject <- x < 5; newobject
 
 x # Comparison against original values
