@@ -32,3 +32,7 @@ df = data.frame(name, age, student)
 
 df
 
+### Built in data sets
+# see list of pre-loaded data sets
+data()
+
