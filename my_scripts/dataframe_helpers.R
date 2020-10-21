@@ -1,25 +1,34 @@
 # IMPORTS
 
-subset_df_by_categoriocal_column <- function(dataframe, col_name) {
+
+subset_list_by_categoriocal_column <- function(data, col_name) {
+  # INPUT: data.frame or list object, column name to subset by
+  #
+  # RETURN: list containing new data.frame objects and a list of category names
+  #         new data.frame objs will be subsets of 
+  #-------------------------------------------------------
   
-  categories <- unique(dataframe[[col_name]])
-  categories <- as.character(categories)
-  # init empty list and index counter for for-loop
-  data_subsets <- list('category_list'=categories)
-  i <- 1
+  # init master list containing list of categories in given column
+  master_list <- list('category_list'=categories)
   
-  for (curr_cat in categories) {
-    data_subsets[[curr_cat]] <- dataframe[ which(dataframe[[col_name]] == curr_cat),]
+  #loop through categories
+  for (curr_cat in master_list$category_list) {
+    # create new title for data subset variable
+    list_name <- paste(curr_cat, '_df', sep='')
+    # append new subset of data to master list
+    master_list[[list_name]] <- data[ which(data$col_name==curr_cat),]
   }
   
-  return(data_subsets)
+  return(master_list)
 }
 
+
+
 chickwts <- datasets::chickwts
-results <- subset_dataframe_by_categorical_column(chickwts, 'feed')
-results$horsebean
+typeof(chickwts)
+results <- subset_list_by_categoriocal_column(chickwts, 'feed')
+typeof(results)
 results$category_list
-
-typeof(as.character(unique(chickwts$feed)))
-
-
+results$horsebean_df
+length(results) 
+str(results)
